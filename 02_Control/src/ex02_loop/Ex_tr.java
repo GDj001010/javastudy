@@ -102,13 +102,18 @@ public class Ex_tr {
 	
 	public static void ex09() {
 		
-		
+		for(int b = 1; b <= 50; b++) {
+			if(b % 4 == 0) {
+				continue;
+			}
+			System.out.println(b);
+		}
 		
 	}
 	
 	public static void main(String[] args) {
 		
-		ex08();
+		ex09();
 
 	}
 

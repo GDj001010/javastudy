@@ -13,7 +13,7 @@ public class Ex04_continue {
 		
 		// 1 ~ 50 사이에서 4의 배수를 제외하고 출력하기
 		
-		for(int a = 1; a < 50; a++) {
+		for(int a = 1; a <= 50; a++) {
 			
 			if(a % 4 == 0) {
 				continue;
