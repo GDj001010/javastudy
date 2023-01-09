@@ -4,7 +4,7 @@ public class Ex01_array {
 
 	/*
 	 	배열이란?
-	 	1. 여러 개의 변수를 하나의 이름으로 관리하는 자료 구조
+	 	1. 여러 개의 변수를 하나의 이름(참조값, 주소)으로 관리하는 자료 구조
 	 	2. 배열의 구성 요소 
 	 		1) 배열명 : 모든 변수의 대표 이름
 	 		2) 인덱스 : 각 변수를 구분하기 위한 위치 정보. (0부터 시작하는 정수값. -값은 들어올 수 없음)
@@ -36,7 +36,7 @@ public class Ex01_array {
 		arr = new int[5]; 	
 		
 		// 배열 요소
-		System.out.println(arr[0]);  // 첫 번째 변수가 0이 되면서 "0" 5개가 출력 됨
+		System.out.println(arr[0]);  // 자동 초기화
 		System.out.println(arr[1]);
 		System.out.println(arr[2]);
 		System.out.println(arr[3]);
@@ -105,9 +105,10 @@ public class Ex01_array {
 			}
 		}
 		
-		System.out.println("합격: " + total + "점");
+		System.out.println("합계: " + total + "점");
 		System.out.println("평균: " + (double)total / scores.length + "점");
-		System.out.println("최대: " + max + "점");
+		System.out.println("최대: " + 
+		max + "점");
 		System.out.println("최소: " + min + "점");
 	}
 		/*
@@ -191,7 +192,7 @@ public class Ex01_array {
 	
 	public static void main(String[] args) {
 		
-		ex09();
+		ex05();
 
 	}
 
