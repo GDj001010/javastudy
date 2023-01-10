@@ -9,7 +9,7 @@ public class MainClass {
 		double add = calc.addition(1.5, 2.5); // addition 메소드 호출
 		System.out.println(add);
 		
-		double sub = calc.subtraction(2.5, 1.3); // subtaction 메소드 호출
+		double sub = calc.subtraction(2.5, 1.3); // subtraction 메소드 호출
 		System.out.println(sub);
 		
 	}
@@ -26,9 +26,30 @@ public class MainClass {
 		
 	}
 	
+	public static void ex03() {
+		
+		Car car = new Car();
+		
+		car.addoil(100);
+		
+		for(int n = 0; n < 51; n++) {
+			car.pushAccle();
+		}
+		
+		System.out.println(car.oilPot);
+		System.out.println(car.carSpeed);
+		
+		for(int n = 0; n < 5; n++) {
+			car.pushBreak();
+		}
+		System.out.println(car.oilPot);
+		System.out.println(car.carSpeed);
+		
+	}
+	
 	public static void main(String[] args) {
 		
-		ex02();
+		ex03();
 		
 		
 	}
