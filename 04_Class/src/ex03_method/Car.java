@@ -12,7 +12,7 @@ public class Car {
 	void addoil(int oil) {
 		if(oilPot + oil > 50) {
 			oilPot = 50;
-			return;  // 메소드 종료  반환타입(void)이 없을 때만 리턴(return) 사용 가능
+			return;  // 메소드 종료  반환타입(void)이 없을 땐 리턴(return)만 사용 가능
 		}
 		oilPot += oil;
 	}
