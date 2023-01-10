@@ -10,11 +10,14 @@ public class Ex01_array {
 	 		2) 인덱스 : 각 변수를 구분하기 위한 위치 정보. (0부터 시작하는 정수값. -값은 들어올 수 없음)
 	*/
 	
+	// []  < 브라켓
+	
 	/*
 	 	배열의 사용 방법
 	 	1. 배열의 선언
- 			1) int[] arr; (정수값)  java에선 int[] arr 방법을 권장
- 			2) int arr[];  
+ 			1) int[] arr;   java에선 int[] arr 방법을 권장
+ 			2) int arr[]; 
+ 			 
 	 	2. 배열의 생성
 	 		arr = new int[5];
 	*/
@@ -192,7 +195,7 @@ public class Ex01_array {
 	
 	public static void main(String[] args) {
 		
-		ex05();
+		ex07();
 
 	}
 

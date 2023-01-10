@@ -68,7 +68,7 @@ public class Ex_tr {
 	}
 
 	
-	// 예제 7 ~ 8번 break문  // 무한루프는 주로 while(true) 로 사용
+	// 예제 7 ~ 8번 break문 18번 break문에서 for문으로 바꾸기 // 무한루프는 주로 while(true) 로 사용
 	// break는 for, while, switch에 사용
 	public static void ex07() {
 		
@@ -205,11 +205,11 @@ public class Ex_tr {
 		arr[3] = 76;
 		arr[4] = 70;
 		
-		int total = 0;
-		int max = 0;
-		int min = 100;
+		int total = arr[0];
+		int max = arr[0];
+		int min = arr[0];
 		
-		for(int i = 0; i < arr.length; i++) {
+		for(int i = 1; i < arr.length; i++) {
 			total += arr[i];
 			if(max < arr[i]) {
 				max = arr[i];
@@ -225,9 +225,51 @@ public class Ex_tr {
 		System.out.println("최소: " + min + "점"); 
 	}
 	
+	public static void ex17() {
+		
+		int[] arr = {10, 20, 30};
+		
+		for(int i = 0; i < arr.length; i++) {
+			System.out.println(arr[i]);
+		}
+		
+	}
+	
+	
+	// 예제 18번 break문에서 for문
+	public static void ex18() {
+		
+		int money = 60;
+		int total = 100000;
+		int a = 0;
+		
+		for(int n = 1; a < total; n++) {
+			a += money;
+			System.out.println(n + "회 모금액: " + money + "총: " + a + "원");
+		}
+		
+	}
+	
+	public static void ex19() {
+		
+		int[][] arr = new int[3][2];
+		for(int i = 0; i < arr.length; i++) {
+			for(int j = 0; j < arr[i].length; j++) {
+				System.out.print(arr[i][j] + "\t");
+			}
+			System.out.println();
+		}
+	}
+	
+	public static void ex20() {
+		
+		String a = ("010")
+		
+	}
+	
 	public static void main(String[] args) {
 		
-		ex16();
+		ex19();
 
 	}
 

@@ -56,14 +56,19 @@ public class Ex02_reference {
 	
 	public static void main(String[] args) {
 		
-		int a[] = new int[5];
-		System.out.println(a);
+		ex03();
 		
 	
 	}
 
 }
 
+/*
+	b[0] = 100;
+	system.out.println(a[0]);
+	출력하면 a, b 둘다 100이 나옴
+
+*/
  
  /*
             |-------|
