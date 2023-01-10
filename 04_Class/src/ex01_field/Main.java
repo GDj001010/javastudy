@@ -18,7 +18,7 @@ public class Main {
 		// 객체 user1의 필드 활용, 필드 값 저장
 		// user1의 addr 필드 생성 (Address 클래스 타입이기 때문에 반드시 new를 이용해 생성해야 한다.)
 		user1.addr = new Address();
-		user2.addr = new Address();
+		user2.addr = new Address();  // user2의 객체 선언 + 생성
 		
 		
 		user1.id = "admin";

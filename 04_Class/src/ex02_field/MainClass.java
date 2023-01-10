@@ -4,7 +4,7 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		
-		
+		// School 객체 선언 + 생성
 		School school = new School();
 		
 		
@@ -17,6 +17,10 @@ public class MainClass {
 			school.students[i] = new Student();  // 학생 한명 한명 ( 객체 만들기 )
 			school.students[i].name = "정숙";
 			school.students[i].stuNo = "10101";
+			
+			
+			
+			
 			
 			// Score를 사용 하기 전에 Score 객체 생성
 			school.students[i].score = new Score();
@@ -36,6 +40,8 @@ public class MainClass {
 		
 		
 		}
+		
+		System.out.println();
 		
 	}
 }

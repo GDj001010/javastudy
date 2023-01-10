@@ -263,7 +263,7 @@ public class Ex_tr {
 	
 	public static void ex20() {
 		
-		String a = ("010")
+		
 		
 	}
 	
