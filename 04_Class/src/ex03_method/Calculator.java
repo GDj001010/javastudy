@@ -53,13 +53,13 @@ public class Calculator {
 	
 	*/
 	
-	// addition 메소드 정의
+	// addition 메소드 선언
 	double addition(double a, double b) {
 		return a + b;
 		
 	}
 	
-	// subtraction 메소드 정의
+	// subtraction 메소드 선언
 	double subtraction(double a, double b) {
 		return a - b;
 	}
