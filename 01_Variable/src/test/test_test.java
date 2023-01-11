@@ -9,7 +9,7 @@ public class test_test {
 		// 예시
 		// 남자입니다
 		
-		int serial = 30;
+		int serial = 3;
 		
 		if(serial % 2 == 1) {
 			System.out.println("남자입니다");
