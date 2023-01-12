@@ -186,20 +186,20 @@ public class MainClass {
 		boolean condition1 = false;  // 일의 자리가 3의 배수인가?
 		boolean condition2 = false;  // 십의 자리가 3의 배수인가?
 		
-		
-		
-		int a = 0;
-		
+		for(int i = 0; i < 101; i++) {
+			int x = i % 10;
+			int y = i / 10;
+			if(x == 3 || x == 6 || x == 9) {
+				System.out.println("짝 ");
+			}
+			if(y == 3 || y == 6 || y ==9) {
+				System.out.println("짝");
+			}
 			
-			for(int b = 1; b < 10; b++) {
-			if(a % 3 == 0 || b % 3 == 0	) {
-				System.out.print("짝");
+				
 		}
-				System.out.println();
-			
-	}
 		
-	}
+		
 	
 	// 문제10. 5명의 이름과 점수를 각각의 배열에 저장하였다.
 	// 가장 높은 점수를 받은 사람의 이름을 출력하시오.

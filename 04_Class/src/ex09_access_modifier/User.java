@@ -17,28 +17,50 @@ public class User {
 		3. "필드"는 private(클래스 내부에서만 접근) 하게 처리한다.    "필드는 무조건" 
 		4. 메소드는 public(전체 접근) 하게 처리한다. "필드"에 접근하기 위해서는 "메소드"를 통해서 접근해야 한다.
 	*/
+	
+	/*
+		Getter와 Setter   "손으로 코딩하지 않음" Source - Generate Getter and Setter - 체크 없이 Select all - Generate
+		1. Getter
+			1) 필드값을 외부로 반출하는 메소드
+			2) get + 필드 이름을 가지는데 이를 수정하면 안됨.
+		
+		2. Setter
+			1) 외부로부터 필드값을 받아오는 메소드
+			2) set + 필드이름을 가지는데 이를 수정하면 안됨.
+	
+	*/
+	
+	
 	// 필드   private으로 바꾸는 작업
 	private String  id;
 	private String  pw;
+	private boolean isVip;  // is로 시작함
 	
 	
 	
-	// 메소드                                 공부하기
-	public void setId(String id) {    	// 전달 받기
-		this.id = id;
-	}
-	public String getId() {          	// 보내 주기
+	// 메소드
+	
+	public String getId() {
 		return id;
 	}
-	
-	public void setPw(String pw) {      // 전달 받기
-		this.pw = pw;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getPw() {  			// 보내 주기
+	public String getPw() {
 		return pw;
 	}
+	public void setPw(String pw) {
+		this.pw = pw;
+	}
 	
-
+	
+	public boolean isVip() {
+		return isVip;
+	}
+	public void setVip(boolean isVip) {
+		this.isVip = isVip;
+	}
+	
 	
 	
 	
