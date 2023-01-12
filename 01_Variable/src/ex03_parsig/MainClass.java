@@ -11,8 +11,8 @@ public class MainClass {
 		String strEye = "0.7";
 		
 		// String -> int로 변환
-		int score = Integer.parseInt(strScore);
-		System.out.println(score);
+		int score = Integer.parseInt(strScore);  // 클래스로 메소드 호출 ( 첫 글자 대문자 : 클래스 )
+		System.out.println(score); 				 // static 메소드는 클래스로 호출 가능
 		
 		// String -> long으로 변환
 		long money = Long.parseLong(strMoney);

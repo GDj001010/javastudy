@@ -129,7 +129,7 @@ public class MainClass {
 		 
 		 
 		 
-		 // 상수 선언하기(final 키워드가 필요)
+		 // 상수 선언하기(final 키워드가 필요) (final이 붙으면 변수 이름을 대문자로 만들기) 값을 못 바꿈
 		 final double PI = 3.141592;
 		 System.out.println(PI);
 		// TODO Auto-generated method stub
