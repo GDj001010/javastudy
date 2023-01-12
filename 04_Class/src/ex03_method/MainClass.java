@@ -5,7 +5,7 @@ public class MainClass {
 	public static void ex01() {
 		// Calculator 객체 선언 + 생성
 		Calculator calc = new Calculator();
-
+		
 		double add = calc.addition(1.5, 2.5); // addition 메소드 호출
 		System.out.println(add);
 		
@@ -18,7 +18,7 @@ public class MainClass {
 		
 		CoffeeMachine coffeeMachine = new CoffeeMachine();
 		
-		CoffeeAndChange coffeeAndChange = coffeeMachine.buyCoffee(1000, 1);
+		CoffeeAndChange coffeeAndChange = coffeeMachine.buyCoffee(500, 1);
 		System.out.println(coffeeAndChange.coffee);
 		System.out.println(coffeeAndChange.change);
 		
@@ -30,7 +30,7 @@ public class MainClass {
 		
 		Car car = new Car();
 		
-		car.addoil(100);
+		car.addoil(49);
 		
 		for(int n = 0; n < 51; n++) {
 			car.pushAccle();
@@ -46,10 +46,26 @@ public class MainClass {
 		System.out.println(car.carSpeed);
 		
 	}
+
+	public static void ex04() { // 연습
+		Car car = new Car();  // Car 클래스 사용 가능
+		
+		car.addoil(40);  // 기름 넣어주기
+		
+		for(int i = 1; i < 50; i++) {
+			car.pushAccle();
+		}
+		
+		System.out.println(car.carSpeed);
+		System.out.println(car.oilPot);
+		
+		
+		
+	}
 	
 	public static void main(String[] args) {
 		
-		ex03();
+		ex04();
 		
 		
 	}

@@ -2,8 +2,8 @@
 package ex09_access_modifier;
 
 public class MainClass {
-
-	public static void main(String[] args) {
+	
+	public static void ex01() {
 		
 		// User 객체 선언 + 생성
 		User user = new User();
@@ -18,6 +18,25 @@ public class MainClass {
 		System.out.println(user.getId());
 		System.out.println(user.getPw());
 		
+		
+	}
+
+	
+	public static void ex02() {
+		
+		User user = new User();
+		
+		user.setId("ehdud");
+		user.setPw("1919");
+		
+		System.out.println(user.getId());
+		System.out.println(user.getPw());
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		ex02();
 	}
 
 }

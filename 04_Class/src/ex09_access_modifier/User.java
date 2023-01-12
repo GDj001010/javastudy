@@ -40,6 +40,7 @@ public class User {
 	
 	// 메소드
 	
+	
 	public String getId() {
 		return id;
 	}
@@ -52,6 +53,8 @@ public class User {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
+	
+	
 	
 	
 	public boolean isVip() {

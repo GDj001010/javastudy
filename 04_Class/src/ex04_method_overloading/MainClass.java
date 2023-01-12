@@ -24,10 +24,26 @@ public class MainClass {
 	
 	}
 	
+	public static void ex02() {
+		
+		Calculator calc = new Calculator();
+		
+		double a = calc.addition(1.5, 2.5);
+		System.out.println(a);
+		
+		double[] add = {1.5, 1.8, 3.4, 6.9};
+		double b = calc.addition(add);
+		System.out.println(b);
+		
+	}
+	
+		
+		
+		
 	
 	public static void main(String[] args) {
 		
-		ex01();
+		ex02();
 
 	}
 

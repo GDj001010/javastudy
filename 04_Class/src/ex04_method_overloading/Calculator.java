@@ -13,7 +13,7 @@ public class Calculator {
 	
 	*/
 	
-	
+	// 메소드
 	double addition(double a, double b) {
 		return a + b;
 	}

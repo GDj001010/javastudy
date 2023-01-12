@@ -2,7 +2,9 @@ package ex03_method;
 
 public class CoffeeAndChange {
 
-	String coffee;
-	int change;
+	// 필드
+	
+	String coffee;  // 커피 초이스?
+	int change;  // 거스름 돈
 	
 }

@@ -4,7 +4,7 @@ public class MainClass {
 
 	public static void main(String[] args) {
 	
-		// 모든 객체는 참초타입
+		// 모든 객체는 참조타입
 		
 		// static : 클래스 기반에 객체들을 하나에 모아서 공유
 		// static 요소는 객체를 이용해서 호출할수 있으나, 권장하지 않는다.
@@ -12,7 +12,7 @@ public class MainClass {
 		
 		// static 요소는 클래스를 이용해서 호출하는 것이 권장이다.
 		
-		// MyMath myMath = new MyMath();
+		// MyMath myMath = new MyMath();  호출을 안 함
 		
 		System.out.println(MyMath.PI);
 		

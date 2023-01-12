@@ -25,11 +25,12 @@ public class Student extends Person{
 	
 	
 	// 생성자   학교 이름을 받아오는 생성자 (이름과 학교 모두 받아옴 (상속))
-	public Student(String name, String school) {
-		super(name);
+	
+	public Student(String school) {
+		super();
 		this.school = school;
-		
 	}
+
 	
 	
 	// 메소드
@@ -37,9 +38,12 @@ public class Student extends Person{
 		return school;
 	}
 
-	public void setSchool(String school) {
+	public Student(String name, String school) {
+		super(name);
 		this.school = school;
 	}
+
+
 	
 	
 	

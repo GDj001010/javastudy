@@ -5,10 +5,10 @@ public class MainClass {
 	public static void ex01() {
 		
 		// User 객체 생성(User() 생성자 호출)
-		User user1 = new User();
+		User user1 = new User();  // User 객체 호출
 		
 		// user1의 info 호출
-		user1.info();
+		user1.info();  // 메소드 호출
 		
 		// User 객체 생성(User(String userId, String userPw)생성자 호출)
 		User user2 = new User("admin", "123456");
@@ -32,10 +32,20 @@ public class MainClass {
 		
 	}
 	
+	public static void ex03() {
+		
+		User user1 = new User();
+		
+		user1.info();
+		
+		User user2 = new User("asdsad", "1231564");
+		
+		user2.info();
+	}
 	
 	public static void main(String[] args) {
 		
-		ex01();
+		ex03();
 		
 	}
 
