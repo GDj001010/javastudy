@@ -1,7 +1,5 @@
 package practice02_Person_Array;
 
-import org.w3c.dom.NameList;
-
 public class MainClass {
 
 	public static void ex01() {
