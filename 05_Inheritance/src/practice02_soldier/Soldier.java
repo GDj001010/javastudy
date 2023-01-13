@@ -14,7 +14,7 @@ public class Soldier {
 	
 	//생성자
 	public Soldier() {
-		gun = new Gun();
+		gun = new Gun();   // Gun 클래스 호출
 	}
 	
 	

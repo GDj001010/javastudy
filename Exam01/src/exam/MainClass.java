@@ -6,21 +6,36 @@ public class MainClass {
 	// int serial의 첫 번째 글자는 항상 1 ~ 6 사이의 정수라고 가정한다.
 	// 예시
 	// 남자입니다.
-	public static void q1() {                 //ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ
-		int number = 1234567;
-		
-		int serial = 1;
-		
-		if(serial % 2 == 0) {
-			System.out.println("여자입니다");
-		}
-		else {
-			System.out.println("남자입니다");
-		}
-		
+	public static void q1() {                 
+		int number = 2234567;
+		/*
+		if(number / 1000000 % 2 == 1) {
+			System.out.println("남자입니다.");  // 100만으로 나눠서 앞자리 구함 길이가 정해져있다면 이 방법이 좋음
+		}else {
 			
+			System.out.println("여자입니다.");
+		}
+		*/
+		/*
+		while(number >= 10) {                // 10으로 계속 나눠주면서 앞자리를 구함  길을 모름
+			number /= 10;
+		}
+		if(number % 2 == 1) {
+			System.out.println("남자입니다.");  // 100만으로 나눠서 앞자리 구함 길이가 정해져있다면 이 방법이 좋음
+		}else {
+			
+			System.out.println("여자입니다.");
 		
 		
+		}
+		*/
+		
+		String strNumber = number + "";  // {"1", "2", "3", "4", "5", "6", "7"}  < 배열처럼 문자형식이 됨
+		if(strNumber.charAt(0) % 2 == 1) {
+			System.out.println("남자입니다.");
+		}else {
+			System.out.println("여자입니다.");
+		}
 		
 		
 		
@@ -51,8 +66,9 @@ public class MainClass {
 	// 2 x 2 = 4
 	// ...
 	// 5 x 5 = 25
+	
 	public static void q3() {
-		
+		/*
 		for(int i = 2; i < 6; i++) {
 			for(int j = 1; j < 10; j++) {
 				if(i == 5 && j == 6) {
@@ -60,16 +76,31 @@ public class MainClass {
 				}
 				System.out.println(i + "x" + j + "=" + (i*j));
 			}
-				
+			
+		}
+		
+	
+*/	
+		outer:  // 바깥 for문의 label
+		for(int i = 2; i < 10; i++) {
+			inner: // 안쪽 for문 label
+			for(int n = 1; n < 10; n++) {
+				System.out.println(i + "x" + n + "=" + (i*n));
+				if(i == 5 && n ==5) {
+					break outer; // 바깥 for문 끝내기
+				}
+			}
 		}
 		
 	}
 	
+
 	// 문제4. begin부터 end 사이의 모든 정수들의 평균을 출력하시오.
 	// 단, 항상 begin은 end보다 작거나 같은 상태이다.
 	// 예시
 	// 1부터 6사이 모든 정수의 평균은 3.5입니다.
 	public static void q4() {
+	/*
 		int begin = 1;
 		int end = 6;
 		int total = 0;
@@ -79,7 +110,16 @@ public class MainClass {
 			begin++;
 		}
 		a = total / (double)end;
-		System.out.println("1부터 6 사이 모든 정수의 평균은: " + a + "입니다.");
+		System.out.println("1" + "부터" + end + "까지 평균: " + a + "입니다.");
+		*/
+		int begin = 1;
+		int end = 6;
+		int total = 0;
+		for(int n = begin; n <= end; n++) {
+			total += n;
+		}
+		System.out.println(begin + "부터" + end + "사이 모든 정수의 평균은" + (total / (double)end));
+		
 		
 	}
 	
@@ -108,10 +148,10 @@ public class MainClass {
 	// 단, 0보다 작은 값은 더하지 마시오.
 	// 예시
 	// 합계는 6입니다.
-	public static void q6() {
+	public static void q6() {   // 배열에서 for문 사용시 인덱스(변수)는 i > j > k 순으로 사용
 		int total = 0;
-		int[] arr = {1, -1, -2, 2, 3, -3};
-		
+		int[] arr = {1, -1, -2, 2, 3, -3};    // 배열에서 마지막 요소가 필요할 땐 (배열의 길이 - 1) arr.length - 1
+		/*
 		for(int n : arr) {
 			if(n < 0) {
 				continue;
@@ -120,18 +160,25 @@ public class MainClass {
 		}
 		System.out.println("합계는: " + total + "입니다.");
 		
-		
+		*/
+	
+		for(int i = 0; i < arr.length; i++) {
+			if(arr[i] >= 0) {
+			total += arr[i];
+			}
+		}
+		System.out.println("합계는: " + total + "입니다.");
 		
 	}
 	
 	// 문제7. 제시된 배열에 변수 ch에 저장된 문자가 몇 개 포함되어 있는지 갯수를 구해서 출력하시오.
 	// 예시
 	// 배열에 포함된 h는 2개입니다.
-	public static void q7() {
+	public static void q7() {      
 		char ch = 'h';
 		char[] characters = {'a', 'h', 'e', 'h', 'p'};
 		int count = 0;
-		
+		/*
 		for(char a : characters) {
 			if(ch == a) {
 				count++;
@@ -139,6 +186,16 @@ public class MainClass {
 			
 		}
 		System.out.println("배열에 포함된 h는: " + count + "개입니다.");
+		*/
+		
+		for(int i = 0; i < characters.length; i++) {
+			if(ch == characters[i]) {
+				count++;
+			}
+			
+		}
+		System.out.println("배열에 포함된 " + ch + "는" + count + "개 입니다.");
+		
 		
 	}
 	
@@ -151,7 +208,7 @@ public class MainClass {
 	// 행주도마
 	public static void q8() {
 		String strScore = "75";
-		
+		/*
 		int a = Integer.parseInt(strScore);
 		
 		if(a >= 90) {
@@ -169,6 +226,40 @@ public class MainClass {
 		else {
 			System.out.println("꽝");
 		}
+		*/
+		/*
+		int score = Integer.parseInt(strScore);
+		
+		String result = "";  // null을 넣어주면 안 됨
+		
+		if(score >= 60) {
+			result += "행주";
+		}
+		if(score >= 70) {
+			result += "도마";
+		}
+		if(score >= 80) {
+			result += "식칼";
+		}
+		if(score >= 90) {
+			result += "냄비";
+		}
+		System.out.println(result);
+		*/
+		
+		int score = Integer.parseInt(strScore);
+		
+		String result = "";
+		
+		switch(score / 10) {
+		case 10: result += "냄비";
+		case 9: 
+		case 8: result += "식칼";
+		case 7: result += "도마";
+		case 6: result += "행주";
+		}
+		
+		System.out.println(result);
 		
 		
 	}
@@ -185,20 +276,27 @@ public class MainClass {
 	public static void q9() {                                      //llllllllllllllllllllllllllllllllllllllllllll
 		boolean condition1 = false;  // 일의 자리가 3의 배수인가?
 		boolean condition2 = false;  // 십의 자리가 3의 배수인가?
-		
-		for(int i = 0; i < 101; i++) {
-			int x = i % 10;
-			int y = i / 10;
-			if(x == 3 || x == 6 || x == 9) {
-				System.out.println("짝 ");
+		for(int n = 1; n < 101; n++) {
+			int one = n % 10;
+			condition1 = one % 3 == 0 && one % 10 != 0;
+			int ten = n / 10;
+			condition2 = ten % 3 == 0 && ten % 10 != 0;
+			if(condition1 && condition2) {
+				System.out.print("짝짝" + "\t");
+			}else if(condition1 || condition2){
+				System.out.print("짝" + "\t");
+			}else {
+				System.out.print(n + "\t");
 			}
-			if(y == 3 || y == 6 || y ==9) {
-				System.out.println("짝");
+			if(n % 10 == 0) {
+				System.out.println();
 			}
 			
+	}
 				
-		}
+				
 		
+}
 		
 	
 	// 문제10. 5명의 이름과 점수를 각각의 배열에 저장하였다.
@@ -206,8 +304,10 @@ public class MainClass {
 	// 예시
 	// 가장 높은 점수를 받은 사람은 정숙입니다.
 	public static void q10() {                        
-		String[] names = {"철수", "영희", "정숙", "상철", "미희"};
-		int[] scores = {50, 60, 90, 80, 70};
+		
+//		String[] names = {"철수", "영희", "정숙", "상철", "미희"};
+//		int[] scores = {50, 60, 90, 80, 70};
+		/*
 		int max = scores[0];											// 순회 하다가 맥스보다 큰 값이 나오면 카운트
 		int j = 0;
 		String b;
@@ -221,11 +321,19 @@ public class MainClass {
 	}
 		b = names[j];
 		System.out.println("가장 높은 점수를 받은 사람은: " + b + "입니다");
-			
-			
+			*/
+		/*
+		int max = scores[0];	//50	
+		int maxNo = 0;			//0		가장 높은 학생의 인덱스
 		
-		
-			
+		for(int i = 1; i < scores.length; i++) {
+			if(max < scores[i]) {
+				max = scores[i];	// 90
+				maxNo = i;			// 2
+			}
+		}
+		System.out.println("가장 높은 점수를 받은 사람은" + names[maxNo] + "입니다.");
+		*/
 		
 
 		
