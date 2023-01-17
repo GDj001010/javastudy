@@ -43,7 +43,9 @@ public class Ex01_Math_random {
 		 
 		int d = (int)(Math.random() *5) + 1;
 		System.out.println(d);
+		
 		*/
+		
 		
 		StringBuilder sb = new StringBuilder();
 		for(int count = 0; count < 6; count++) {
