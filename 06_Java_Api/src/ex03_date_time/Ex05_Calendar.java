@@ -27,7 +27,7 @@ public class Ex05_Calendar {
 		System.out.println(year);
 		System.out.println(month);
 		System.out.println(day);
-		System.out.println(weekNo);							// 화
+		System.out.println(weekNo);							
 		System.out.println(week[weekNo - 1] + "요일");
 
 		// 오전/오후, 시, 분, 초

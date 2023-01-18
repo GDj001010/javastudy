@@ -9,7 +9,7 @@ public class MainClass {
 		student.eat();
 		student.sleep();
 		student.study();
-
+		
 	}
 
 }
