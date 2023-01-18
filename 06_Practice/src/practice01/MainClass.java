@@ -19,7 +19,7 @@ public class MainClass {
 		
 		Scanner sc = new Scanner(System.in);	// user가 가위바위보를 내는 걸 입력
 		System.out.println("가위바위보 >>>");
-		int user;
+		int user = 0;
 		switch(sc.next()) {
 		case "가위": user = 0; break;
 		case "바위": user = 1; break;
@@ -28,27 +28,48 @@ public class MainClass {
 		String result = null;
 		switch(user - com) {
 		case 0: result = "비겼습니다."; 
-		break;
-		case -2:
-		case -1: result = "졌습니다.";
-		break;
+			break;
+		case -2: 
+		case 1: result = "이겼습니다.";
+			break;
+		default : result = "졌습니다.";
+		}
+		System.out.println("당신은: " + strarr[user] + " 컴퓨터는: " + strarr[com] + " " + result);
+		
+		
+	}
+	
+	public static void ex02() {
+		
+		String[] player = {"가위", "바위", "보"};
+		
+		int com = (int)(Math.random() * 3);
+		Scanner sc = new Scanner(System.in);
+		System.out.println("가위바위보 >>>");
+		
+		int user = 0;
+		switch(sc.next()) {
+		case "가위" : user = 0;
+			break;
+		case "바위" : user = 1;
+			break;
+		default : user = 2;
+		}
+		
+		String result = null;
+		switch(user - com) {
+		case 0 : result = "비겼습니다.";
+		case -1 :
+		case 2 : result = "졌습니다.";
 		default : result = "이겼습니다.";
 		}
-		// System.out.println("당신은" + );
-		
-		
-		
-		
-			
-		
-
-		
+		System.out.println("당신은: " + player[user] + " 컴퓨터는: " + player[com] + " " + result);
 		
 	}
 	
 	public static void main(String[] args) {
 		
-		ex01();
+		ex02();
 
 	}
 
