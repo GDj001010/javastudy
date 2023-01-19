@@ -39,33 +39,27 @@ public class MainClass {
 		
 	}
 	
+	// 문제2. 친구 3명을 저장할 수 있는 배열을 생성하고 임의의 값으로 초기화하시오.
+	// 새로 사귄 친구의 수를 입력 받아서 기존 친구들이 저장된 배열의 길이를 새로 사귄 친구의 수만큼 늘리시오.
 	public static void ex02() {
 		
-		String[] player = {"가위", "바위", "보"};
+		String[] strPd = {"정빈", "지훈", "동형"};
 		
-		int com = (int)(Math.random() * 3);
+		
 		Scanner sc = new Scanner(System.in);
-		System.out.println("가위바위보 >>>");
+		System.out.println("새로 사귄 친구 >>>");
+		int count = sc.nextInt();
 		
-		int user = 0;
-		switch(sc.next()) {
-		case "가위" : user = 0;
-			break;
-		case "바위" : user = 1;
-			break;
-		default : user = 2;
-		}
 		
-		String result = null;
-		switch(user - com) {
-		case 0 : result = "비겼습니다.";
-		case -1 :
-		case 2 : result = "졌습니다.";
-		default : result = "이겼습니다.";
-		}
-		System.out.println("당신은: " + player[user] + " 컴퓨터는: " + player[com] + " " + result);
+		
+		
+		
+		
+		
 		
 	}
+	
+	
 	
 	public static void main(String[] args) {
 		

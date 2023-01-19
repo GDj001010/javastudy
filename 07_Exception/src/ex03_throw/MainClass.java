@@ -59,6 +59,12 @@ public class MainClass {
 		
 	}
 	
+	public static void ex111() {
+		
+		
+		
+	}
+	
 	public static void main(String[] args) {
 		
 			ex02();

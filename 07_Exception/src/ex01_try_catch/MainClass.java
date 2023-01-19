@@ -86,19 +86,7 @@ public class MainClass {
 		
 	}
 	
-	public static void ex111() {
-		
-		String input = "1,2,3,,4,5";
-		String[] numbers = input.split(",");
-		
-		int[] iNumbers = new int[numbers.length];
-		
-		
-		for(int i = 0; i < numbers.length; i++) {
-			iNumbers[i] = Integer.parseInt(numbers[i]);
-			System.out.println(iNumbers[i]);
-	}
-}
+
 	
 	public static void main(String[] args) {
 		
