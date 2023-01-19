@@ -99,6 +99,7 @@ public class MainClass {
 		
 		Set<Integer> set = new HashSet<Integer>();
 		
+		/*
 		while(true) {
 			
 			int lotto = (int)(Math.random() * 45) + 1;
@@ -109,7 +110,7 @@ public class MainClass {
 			}
 			
 		}
-		
+		*/
 		while(set.size() < 6) {
 			set.add( (int)(Math.random() * 45) + 1);
 		}

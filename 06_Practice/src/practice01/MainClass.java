@@ -52,6 +52,15 @@ public class MainClass {
 		
 		String[] newPd = new String[count];
 		
+		for(int i = 0; i < newPd.length; i++) {
+			newPd[i] += strPd[i];
+		}
+		strPd = newPd;
+		
+		for(int j = 0; j < strPd.length; j++) {
+			System.out.println(strPd[j]);
+		}
+		
 		
 		
 		
