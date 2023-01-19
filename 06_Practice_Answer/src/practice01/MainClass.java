@@ -49,6 +49,9 @@ public class MainClass {
 		}
 		friendList = temp;
 		System.out.println(friendList.length);
+		for(int j = 0; j < friendList.length; j++) {
+			System.out.println(friendList[j]);
+		}
 		sc.close();
 	}
 	
@@ -220,7 +223,7 @@ public class MainClass {
 	}
 	
 	public static void main(String[] args) {
-		ex01();
+		ex02();
 	}
 
 }

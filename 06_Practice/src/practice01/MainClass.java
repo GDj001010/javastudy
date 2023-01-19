@@ -44,38 +44,45 @@ public class MainClass {
 	public static void ex02() {
 		
 		String[] strPd = {"뿌뿌", "뽀뽀", "빠삐"};
-		
-		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("새로 사귄 친구 >>>");
 		int count = sc.nextInt();
-		
-		String[] newPd = new String[count];
-		
-		for(int i = 0; i < newPd.length; i++) {
-			newPd[i] += strPd[i];
+		String[] result = new String[strPd.length + count];
+		for(int i = 0; i < strPd.length; i++) {
+			result[i] += strPd[i];
 		}
-		strPd = newPd;
-		
+		strPd = result;
+		System.out.println(strPd.length);
 		for(int j = 0; j < strPd.length; j++) {
 			System.out.println(strPd[j]);
 		}
+		sc.close();
+	
+	}
+	
+
+	public static void ex03() {
+		String[] str = {"가위", "바위", "보"};
 		
-		
-		
-		
-		
-		
-		
+		int com = (int)(Math.random() * 3);
+		Scanner sc = new Scanner(System.in);
+		String a = null;
+		int user = 0;
+		switch(sc.next()) {
+		case "가위" : user = 0;
+		case "바위" : user = 1;
+		default : user = 2;
+		}
 		
 		
 	}
 	
 	
 	
+	
 	public static void main(String[] args) {
 		
-		ex02();
+		ex03();
 
 	}
 
