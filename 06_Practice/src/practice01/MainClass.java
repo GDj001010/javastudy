@@ -43,12 +43,15 @@ public class MainClass {
 	// 새로 사귄 친구의 수를 입력 받아서 기존 친구들이 저장된 배열의 길이를 새로 사귄 친구의 수만큼 늘리시오.
 	public static void ex02() {
 		
-		String[] strPd = {"정빈", "지훈", "동형"};
+		String[] strPd = {"뿌뿌", "뽀뽀", "빠삐"};
 		
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("새로 사귄 친구 >>>");
 		int count = sc.nextInt();
+		
+		String[] newPd = new String[count];
+		
 		
 		
 		
