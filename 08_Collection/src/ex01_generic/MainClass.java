@@ -18,7 +18,6 @@ public class MainClass {
 		box2.setItem("hello");
 		System.out.println(box2.getItem());
 		
-		
 	}
 
 }

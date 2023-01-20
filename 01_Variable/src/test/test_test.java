@@ -87,11 +87,19 @@ public class test_test {
 		*/
 	}
 		
+	public static void ex05(){
+	
+		int idx = 3;
 		
+		int deletecar = (int)(Math.random() * idx);
+		
+		System.out.println(deletecar);
+		
+	}
 
 	public static void main(String[] args) {
 		
-		ex01();
+		ex05();
 
 	}
 

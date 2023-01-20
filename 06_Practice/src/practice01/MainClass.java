@@ -1,5 +1,7 @@
 package practice01;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MainClass {
@@ -49,7 +51,7 @@ public class MainClass {
 		int count = sc.nextInt();
 		String[] result = new String[strPd.length + count];
 		for(int i = 0; i < strPd.length; i++) {
-			result[i] += strPd[i];
+			result[i] = strPd[i];
 		}
 		strPd = result;
 		System.out.println(strPd.length);
@@ -60,19 +62,10 @@ public class MainClass {
 	
 	}
 	
-
+	// 문제3. Scanner 클래스의 next() 메소드를 이용해서 사용자로부터 문자열을 계속 입력 받는다.
+	// 사용자가 "종료" 문자열을 입력하면 더 이상 입력 받지 않는다.
+	// 총 몇 번만에 종료되었는지 그 횟수를 마지막에 출력한다.
 	public static void ex03() {
-		String[] str = {"가위", "바위", "보"};
-		
-		int com = (int)(Math.random() * 3);
-		Scanner sc = new Scanner(System.in);
-		String a = null;
-		int user = 0;
-		switch(sc.next()) {
-		case "가위" : user = 0;
-		case "바위" : user = 1;
-		default : user = 2;
-		}
 		
 		
 	}

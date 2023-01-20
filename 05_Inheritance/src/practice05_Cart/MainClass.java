@@ -10,7 +10,7 @@ public class MainClass {
 		me.addToCart(new Pizza(2, "고구마피자", 3000));
 		me.addToCart(new Noodle(3, "누들면", 2000));
 		me.addToCart(new Noodle(3, "누들면", 2000));
-		me.deleteFromCart(3);
+		me.deleteFromCart(2);
 		
 		String receipt = me.buy();
 		System.out.println(receipt);
