@@ -7,7 +7,7 @@ public class MainClass {
 		Soldier soldier = new Soldier();
 		
 		
-		soldier.reload(1);
+		soldier.reload(0);
 		soldier.shoot();
 		
 		

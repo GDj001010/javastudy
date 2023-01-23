@@ -223,7 +223,7 @@ public class MainClass {
 	}
 	
 	public static void main(String[] args) {
-		ex02();
+		ex08();
 	}
 
 }

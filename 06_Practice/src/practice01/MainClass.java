@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class MainClass {
 
 	// 문제1. 가위바위보
@@ -66,16 +67,141 @@ public class MainClass {
 	// 사용자가 "종료" 문자열을 입력하면 더 이상 입력 받지 않는다.
 	// 총 몇 번만에 종료되었는지 그 횟수를 마지막에 출력한다.
 	public static void ex03() {
+		Scanner sc = new Scanner(System.in);
+		int count = 0;
+		String a = "";
+		
+		while(!a.equals("종료")) {
+			System.out.println("입력하시오 >>>");
+			a = sc.next();
+			count++;
+			
+		}
+		System.out.println("입력된 숫자는: " + count + " 회 입니다.");
+		sc.close();
+	}
+	
+	// 문제4. 퀴즈 정답을 맞힐때까지 계속 퀴즈를 내시오.
+	// 질문 : 대한민국의 수도는? >>> 서울
+	// 정답입니다.
+	// 질문 : 대한민국의 수도는? >>> seoul
+	// 정답입니다.
+	// 질문 : 대한민국의 수도는? >>> 인천
+	// 오답입니다.
+	
+	public static void ex04() {
+		
+		Scanner sc = new Scanner(System.in);
+		String str = "";
+		
+		while(!str.equals("서울")) {
+			System.out.println("대한민국의 수도는? >>>");
+			str = sc.next();
+			if(!str.equals("서울")) {
+				System.out.println("오답입니다.");
+			}
+			
+			
+		}
+		System.out.println("정답입니다.");
+		sc.close();
+		
+	}
+	
+	// 문제5. 평점 입력 받아서 해당 평점만큼 ★을 출력하시오.
+	// 평점은 1 ~ 5 사이 정수로 입력 받는데, 벗어난 범위는 다시 입력 받는다.
+	public static void ex05() {
+		int a = 0;
+		Scanner sc = new Scanner(System.in);
+		StringBuilder sb = new StringBuilder();
+		
+		do {
+			System.out.println("평점(1~5) >>>");
+			a = sc.nextInt();
+		}while(a < 1 || a > 5);
+		for(int count = 0; count < a; count++) {
+			sb.append("★");
+			
+		}
+		String star = sb.toString();
+		System.out.println(star);
+		sc.close();
+		
 		
 		
 	}
 	
 	
+	// 문제6. 비밀번호를 "1234"로 가정한다.
+	// 사용자로부터 비밀번호를 입력 받아서 "1234"와 같으면 "성공", "1234"가 아니면 다시 비밀번호를 입력 받도록 처리하시오.
+	// 비밀번호 입력은 최대 5번으로 제한하고, 5번의 입력이 모두 틀리면 최종적으로 "실패"를 출력하시오.
+	public static void ex06() {
+		
+		Scanner sc = new Scanner(System.in);
+		int count = 0;
+		int pw = 0;
+		
+		do {
+			System.out.println("비밀번호를 입력하시오. >>>");
+			pw = sc.nextInt();
+			count++;
+			if(count == 5) {
+				System.out.println("실패");
+				return;
+			}
+		}while(pw != 1234);
+		
+		
+		
+		System.out.println("성공");
+		sc.close();
+		
+	}
 	
+	
+	// 문제7. 구구단을 외자.
+	// 2~9단 사이의 임의의 구구단이 출력되면 정답을 입력한다.
+	// 정답을 입력해서 맞으면 "정답", 틀리면 "땡"을 출력하시오.
+	// 예시1)
+	// 4x9? >>> 36
+	// 정답
+	// 예시2)
+	// 8x7? >>> 49
+	// 땡
+	public static void ex07() {
+		
+		int dan = (int)((Math.random() * 8) + 2);
+		int n = (int)((Math.random() * 9) + 1);
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println(dan + "X" + n + " = >>>");
+		int result = sc.nextInt();
+		System.out.println(dan * n == result ? "정답" : "오답");
+		
+		
+		
+	}
+	
+	
+	// 문제8. 임의의 주민등록번호(personalId)를 분석하여 나이와 성별을 출력하시오.
+	// 나이 : 현재년도 - 태어난년도 + 1
+	// 성별 : 하이픈(-) 뒤의 글자가 1,3이면 "남자", 2,4이면 "여자"
+	// 예시)
+	// 28살 여자입니다.
+	public static void ex08() {
+		int age = 0;
+		String gender = "";
+		Scanner sc = new Scanner(System.in);
+		System.out.println("주민등록번호: >>>");
+		
+		
+		
+		
+	}
 	
 	public static void main(String[] args) {
 		
-		ex03();
+		ex08();
 
 	}
 
