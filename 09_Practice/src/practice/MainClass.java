@@ -30,6 +30,11 @@ public class MainClass {
 		
 	}
 	
+	public static void ex02() {
+		
+		
+	}
+	
 	public static void main(String[] args) {
 		
 		ex01();
