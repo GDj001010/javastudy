@@ -16,7 +16,16 @@ public class Library {
 	}
 	
 	private void addBook() {
-		
+		System.out.println("=== 책 추가하기 ===");
+		System.out.print("isbn >>>");
+		String isbn = sc.next();
+		System.out.print("title >>>");
+		String title = sc.next();
+		System.out.print("author >>>");
+		String author = sc.next();
+		Book book = new Book(isbn, title, author);
+		books.add(book);
+		System.out.println(title + "책이 추가되었습니다.");
 	}
 	
 	private void deleteBook() {
