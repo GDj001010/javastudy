@@ -48,7 +48,7 @@ public class MainClass {
 		
 		// 개별 요소 확인
 		System.out.println("첫 번째 요소 : " + list.get(0));
-		System.out.println("첫 번째 요소 : " + list.get(list.size() - 1));
+		System.out.println("마지막 요소 : " + list.get(list.size() - 1));
 
 		// 리스트 순회 for문 돌리기
 		// 모든 요소 합계 구하기
@@ -124,7 +124,7 @@ public class MainClass {
 	
 	public static void main(String[] args) {
 		
-		ex02();
+		ex03();
 
 	}
 
