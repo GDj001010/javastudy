@@ -1,6 +1,7 @@
 package practice01;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
@@ -189,7 +190,9 @@ public class MainClass {
 	// 예시)
 	// 28살 여자입니다.
 	public static void ex08() {
+		Calendar now = Calendar.getInstance();
 		int age = 0;
+		String asas;
 		String gender = "";
 		Scanner sc = new Scanner(System.in);
 		System.out.println("주민등록번호: >>>");
