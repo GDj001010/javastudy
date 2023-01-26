@@ -1,5 +1,7 @@
 package practice01;
 
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -190,13 +192,25 @@ public class MainClass {
 	// 예시)
 	// 28살 여자입니다.
 	public static void ex08() {
-		Calendar now = Calendar.getInstance();
-		int age = 0;
-		String asas;
+
+		Calendar calendar = Calendar.getInstance();
+		String personAge = "961010-2843198";
+		int nowYear = calendar.get(Calendar.YEAR);
 		String gender = "";
-		Scanner sc = new Scanner(System.in);
-		System.out.println("주민등록번호: >>>");
 		
+		switch(Integer.parseInt(personAge.substring(7, 8))) {
+		case 1:
+		case 2: gender = 19 + personAge.substring(0, 2);
+		break;
+		case 3:
+		case 4: gender = 20 + personAge.substring(0, 2);
+		break;
+		}
+		
+		int age = nowYear - Integer.parseInt(gender);
+		String mow = "";
+		
+		System.out.println(age + "살" + "여자" + "남자");
 		
 		
 		

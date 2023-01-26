@@ -16,7 +16,7 @@ public class Ex06_LocalDateTime {
 
 	public static void ex01() {
 		LocalDate date1 = LocalDate.now();						// 현재
-		System.out.println(date1);
+		System.out.println(date1.getYear());
 
 		LocalDate date2 = LocalDate.of(2023, 1, 17);			// 특정일
 		System.out.println(date2);
@@ -92,7 +92,7 @@ public class Ex06_LocalDateTime {
 	
 	public static void main(String[] args) {
 		
-		ex04();
+		ex01();
 
 	}
 

@@ -4,11 +4,11 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		
-		String a = "";
-		String b = "20";
+		String name = "김동형";
 		
-		a = 20 + b;
-		System.out.println(a);
+		String age = "30";
+		
+	 
 		
 
 	}
