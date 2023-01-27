@@ -50,10 +50,9 @@ public class Ex02_reference {
 		// 기존 배열이 신규 배열로 변경되었으므로 확인
 		for(int i = 0; i < a.length; i++) {
 			System.out.println(a[i]);
-		}
 		
+	  }
 	}
-	
 	public static void main(String[] args) {
 		
 		ex03();
