@@ -30,7 +30,7 @@ public class MainClass {
 		}
 		
 		// 파일 작업
-		File file = new File(dir, "ex01_txt");
+		File file = new File(dir, "ex01.txt");
 		
 		// 출력 스트림 선언
 		FileWriter fw = null;
@@ -42,7 +42,7 @@ public class MainClass {
 			// 출력 스트림으로 문자 보내기
 			int c = 'I';
 			char[] cbuf = {' ', 'a', 'm'};
-			String str = "a boy";
+			String str = " a boy";
 			
 			fw.write(c);		// 반드시 예외 처리가 필요한 코드
 			fw.write(cbuf);
@@ -205,7 +205,7 @@ public class MainClass {
 	
 	public static void main(String[] args) {
 		
-		ex05();
+		ex01();
 
 	}
 
