@@ -1,36 +1,38 @@
 package ex03_Reader;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 
 public class MyMainClass {
 
 	public static void ex01() {
 		
-		File dir = new File("C:" + File.separator + "storage");
-		if(dir.exists() == false) {
-			dir.mkdirs();
-		}
-		File file = new File(dir, "ex01.txt");
+		File file = new File("C:" + File.separator + "storage", "ex01.txt");
 		
-		FileReader fr = null;
+		BufferedReader br = null;
+		
 		try {
+			br = new BufferedReader(new FileReader(file));
+			String str = null;
 			
-			fr = new FileReader(file);
-			
-			int c;
-			
-			StringBuilder sb = new StringBuilder();
-			while((c = fr.read()) != 1) {
-				
-				sb.append((char)c);
-				
-			}
-			System.out.println(sb.toString());
-			
-		} catch (Exception e) {
+			br.read();
+			System.out.println(br.toString());
+		}catch(IOException e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				if(br != null) {
+					br.close();
+				}
+			}catch(IOException e) {
+				e.printStackTrace();
+			}
 		}
+		
+		
+		
 		
 	}
 	
