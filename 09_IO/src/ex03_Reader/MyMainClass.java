@@ -16,9 +16,13 @@ public class MyMainClass {
 		try {
 			br = new BufferedReader(new FileReader(file));
 			String str = null;
+			StringBuilder sb = new StringBuilder();
+			while((str = br.readLine()) != null) {
+				sb.append(str);
+			}
 			
-			br.read();
-			System.out.println(br.toString());
+			System.out.println(sb.toString());
+			
 		}catch(IOException e) {
 			e.printStackTrace();
 		}finally {
@@ -36,9 +40,40 @@ public class MyMainClass {
 		
 	}
 	
+	public static void ex02() {
+		
+		File file = new File("C:"+ File.separator + "storage", "ex02.txt");
+		
+		BufferedReader br = null;
+		
+		try {
+			br = new BufferedReader(new FileReader(file));
+			String str = null;
+			StringBuilder sb = new StringBuilder();
+			
+			while((str = br.readLine()) != null) {
+				sb.append(str);
+			}
+			System.out.println(sb.toString());
+		}catch(IOException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(br != null) {
+					br.close();
+				}
+			}catch(IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+	
+	
 	public static void main(String[] args) {
 			
-		ex01();
+		ex02();
 
 	}
 

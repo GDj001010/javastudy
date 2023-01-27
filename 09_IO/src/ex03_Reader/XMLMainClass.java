@@ -19,7 +19,7 @@ public class XMLMainClass {
 	public static void main(String[] args) {
 		
 		// C:\storage\product.xml 읽기
-		
+		// 보너스
 		
 		try {
 			
