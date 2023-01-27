@@ -5,43 +5,44 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-public class CSVMainClass {
-	
+public class JSONMainClass {
+
 	public static void main(String[] args) {
 		
-		// C:\storage\product.csv 읽기
-		
-		// 
-		
-		File file = new File("C:" + File.separator + "storage", "product.csv");
+		// C:\storage\product.json 일기
+		File file = new File("C:" + File.separator + "storage", "product.json");
 		
 		BufferedReader br = null;
 		
 		try {
 			br = new BufferedReader(new FileReader(file));
 			
+			String line = null;
+			StringBuilder sb = new StringBuilder();
+			while((line = br.readLine()) != null) {
+				sb.append(line);
+				
+			}
+			
+			JSONArray arr = new JSONArray(sb.toString());
 			List<Map<String, Object>> products = new ArrayList<Map<String,Object>>();
 			
-			String line = null;
-			while((line = br.readLine()) != null) {
-				String[] items = line.split(",");
-				Map<String, Object> product = new HashMap<String, Object>();
-				product.put("model", items[0]);
-				product.put("maker", items[1]);
-				product.put("price", Integer.parseInt(items[2]));
-				products.add(product);
+			for(int i = 0; i < arr.length(); i++) {
+				JSONObject obj = arr.getJSONObject(i);
+				products.add(obj.toMap());		// JSONObject obj를 Map으로 바꿔서 List에 저장하기
 			}
 			System.out.println(products);
 		}catch(IOException e) {
 			e.printStackTrace();
 		}finally {
 			try {
-				if(br != null) {
+				if(br != null){
 					br.close();
 				}
 			}catch(IOException e) {
@@ -49,10 +50,16 @@ public class CSVMainClass {
 			}
 		}
 		
-		
 	}
 
 }
+
+
+
+
+
+
+
 
 
 
