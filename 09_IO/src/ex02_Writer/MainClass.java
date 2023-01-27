@@ -156,12 +156,12 @@ public class MainClass {
 		if(dir.exists() == false) {
 			dir.mkdirs();
 		}
-		File file = new File(dir, "ex05.txt");
+		File file = new File(dir, "ex04.txt");
 		
 		try(BufferedWriter bw = new BufferedWriter(new FileWriter(file))){
 			
 			bw.write("안녕하세요 반갑습니다");
-			System.out.println("ex05.txt 파일이 생성되었습니다.");
+			System.out.println("ex04.txt 파일이 생성되었습니다.");
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
@@ -182,7 +182,7 @@ public class MainClass {
 			dir.mkdirs();
 		}
 		
-		File file = new File(dir, "ex06.txt");
+		File file = new File(dir, "ex05.txt");
 		
 		PrintWriter out = null;
 		
@@ -193,7 +193,7 @@ public class MainClass {
 			out.println("안녕하세요.");
 			out.println("반갑습니다.");
 			
-			System.out.println("ex06.txt 파일이 생성되었다.");
+			System.out.println("ex05.txt 파일이 생성되었다.");
 		}catch(IOException e) {
 			e.printStackTrace();
 		}finally {
@@ -205,7 +205,7 @@ public class MainClass {
 	
 	public static void main(String[] args) {
 		
-		ex04();
+		ex05();
 
 	}
 

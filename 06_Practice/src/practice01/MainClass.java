@@ -194,25 +194,30 @@ public class MainClass {
 	public static void ex08() {
 
 		Calendar calendar = Calendar.getInstance();
-		String personAge = "961010-2843198";
-		int nowYear = calendar.get(Calendar.YEAR);
-		String gender = "";
+		String personAge = "000711-457936";
 		
-		switch(Integer.parseInt(personAge.substring(7, 8))) {
+		int year = calendar.get(Calendar.YEAR);
+		int genderNo = Integer.parseInt(personAge.substring(7, 8));
+		String birthYear = "";
+		
+		switch(genderNo) {
 		case 1:
-		case 2: gender = 19 + personAge.substring(0, 2);
+		case 2: birthYear = 19 + personAge.substring(0, 2);
 		break;
 		case 3:
-		case 4: gender = 20 + personAge.substring(0, 2);
+		case 4: birthYear = 20 + personAge.substring(0, 2);
 		break;
 		}
 		
-		int age = nowYear - Integer.parseInt(gender);
-		String mow = "";
-		
-		System.out.println(age + "살" + "여자" + "남자");
-		
-		
+		int age = (year - Integer.parseInt(birthYear)) + 1;
+		String gender = "";
+		if(genderNo % 2 == 1) {
+			gender = "남자";
+		}else {
+			gender = "여자";
+		}
+		System.out.println(age + "살" + gender + "입니다.");
+		System.out.println(Integer.parseInt(birthYear));
 		
 	}
 	

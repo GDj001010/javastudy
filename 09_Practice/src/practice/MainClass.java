@@ -339,51 +339,44 @@ public class MainClass {
 		
 		File file = new File("C:" + File.separator + "storage", "diary.txt");
 		
+		File newDir	= new File("C:" + File.separator + "storage2");
+		if(newDir.exists() == false) {
+			newDir.mkdirs();
+		}
+		File newFile = new File(newDir, "diary.txt");
+		
 		BufferedReader br = null;
+		BufferedWriter bw = null;
 		
 		try {
 			br = new BufferedReader(new FileReader(file));
+			bw = new BufferedWriter(new FileWriter(newFile));
 			String str = null;
-			StringBuilder sb = new StringBuilder();
 			
 			while((str = br.readLine()) != null) {
-				sb.append(str);
-			}
-			if(file.exists()) {
-				file.deleteOnExit();
-				System.out.println("C:" + File.separator + "sorage" + File.separator + "diary 파일이 삭제되었습니다.");
+				bw.append(str);
+				bw.newLine();
 			}
 			
-			File dir = new File("C:" + File.separator + "storage2");
-			if(dir.exists() == false) {
-				dir.mkdirs();
-			}
-			File file1 = new File(dir, "diary.txt");
+			bw.close();
+			br.close();
+		
+			if(file.length() == newFile.length()) {
+				file.deleteOnExit();
 				
-			try(BufferedWriter bw = new BufferedWriter(new FileWriter(file1))){
-			bw.append(sb.toString());
-			System.out.println("C:" + File.separator + "storage 폴더에 파일 생성");
-			}catch(IOException e) {
-				e.printStackTrace();
+				System.out.println("원본 파일 삭제");
+				System.out.println();
+				System.out.println("복사 파일 생성");
 			}
 		}catch(IOException e) {
 			e.printStackTrace();
-		}finally {
-			try {
-				if(br != null) {
-					br.close();
-				}
-			}catch(IOException e) {
-				e.printStackTrace();
-			}
 		}
-			
 		
 	}
 	
 	public static void main(String[] args) {
 		
-		ex04();
+		ex06();
 		
 	}
 
