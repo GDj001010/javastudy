@@ -182,6 +182,11 @@ public class MainClass {
 			person.setHeight(170.5);
 			person.setAlive(false);
 			
+			// 출력
+			oos.writeObject(people);
+			oos.writeObject(person);
+			
+			
 		}catch (IOException e) {
 			e.printStackTrace();
 		}finally {
@@ -196,6 +201,7 @@ public class MainClass {
 		System.out.println("ex05.dat 파일의 크기 : " + file.length() + "바이트");
 		
 	}
+	
 	
 	public static void main(String[] args) {
 		

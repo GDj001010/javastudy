@@ -1,7 +1,24 @@
 package ex04_OutputStream;
 
-public class Person {
+import java.io.Serializable;
 
+/*
+	ObjectOutputStream/ObjectInputStream을 통해서
+	객체 입출력을 수행하려면 "반드시" 직렬화 처리를 해야 한다.
+*/
+
+/*
+	직렬화 처리 방법
+	1. java.io.Serializable 인터페이스를 구현(implements)한다.(필수)	- 클래스 뒤에 구현
+	2. serialVersionUID 필드 값을 정의한다.	(선택)
+*/
+
+public class Person implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7033755836244474051L;		// 경고 메시지(노란줄) 커서 대고 선택
 	private String name;
 	private int age;
 	private double height;
