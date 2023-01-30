@@ -61,7 +61,7 @@ public class Ex01_String {
 		
 	}
 	
-	public static void equals() {
+	public static void equals() {		// 공부
 		
 		// equals 메소드
 		// 비교하는 문자열이 동일하면 true, 아니면 false 반환
@@ -84,7 +84,7 @@ public class Ex01_String {
 		
 	}
 	
-	public static void length() {
+	public static void length() {		// 공부
 		
 		// length 메소드
 		// 문자열의 길이(글자수)를 반환
@@ -114,7 +114,7 @@ public class Ex01_String {
 		
 	}
 	
-	public static void substing() {
+	public static void substing() {			// 공부
 		
 		// substring 메소드
 		// 문자열의 일부 문자열을 반환
@@ -132,7 +132,7 @@ public class Ex01_String {
 		System.out.println(givenName);
 	}
 
-	public static void indexOf() {
+	public static void indexOf() {			// 공부
 		
 		// indexOf
 		// 특정 문자열의 인덱스 정보를 반환

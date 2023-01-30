@@ -221,10 +221,76 @@ public class MainClass {
 		
 	}
 	
+	// 문제9. 다음 기준에 따라서 파일명을 변환하시오.
+	// Scanner 클래스의 next() 메소드를 이용해서 파일명을 입력 받은 뒤 파일명을 다음과 같이 수정하시오.
+	// 파일명 마지막에 밑줄(_)과 타임스탬프 값을 붙이시오.
+	// 예시)
+	// 변환 전 파일명 >>> happy.jpg
+	// 변환 후 파일명 = happy_1658792128410.jpg
+	public static void ex09() {
+		
+		
+		
+		
+	}
+	
+	// 문제10. Scanner 클래스의 next() 메소드를 이용해서 사람 이름을 입력 받은 뒤
+	// 친구의 이름이면 "반갑다 친구야"를 출력하고, 모르는 사람의 이름이면 "처음 뵙겠습니다"를 출력하시오.
+	// 친구의 이름을 String[] friend 배열에 저장한 뒤 작업을 수행하시오.
+	// 예시1
+	// 이름 입력 >>> 정우성
+	// 반갑다 친구야
+	// 예시2
+	// 이름 입력 >>> 유재석
+	// 처음 뵙겠습니다
+	public static void ex10() {
+		
+		String[] frends = {"임지훈", "하준서", "김소연"};
+		Scanner sc = new Scanner(System.in);
+		System.out.println("친구 이름: >>>");
+		String frend = sc.next();
+		
+		for(int i = 0; i < frends.length; i++) {
+			if(frend.equals(frends[i])) {
+				System.out.println("반갑다 친구야.");
+				return;
+			}
+		}
+		System.out.println("처음 뵙겠습니다.");
+		sc.close();
+		
+	}
+	
 	public static void main(String[] args) {
 		
-		ex08();
+		ex10();
 
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
