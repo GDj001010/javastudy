@@ -245,7 +245,9 @@ public class MainClass {
 			System.out.println(people);
 			System.out.println(person);
 			
-		}catch (Exception e) {
+		}catch (ClassNotFoundException e) {							// readObject(); 메소드는 두 가지 예외를 잡아줘야 되지만
+			e.printStackTrace();									// Exception 하나로 모든 예외 처리 가능
+		}catch (IOException e) {
 			e.printStackTrace();
 		}finally {
 			try {
