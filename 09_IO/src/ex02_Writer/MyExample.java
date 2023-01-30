@@ -1,50 +1,66 @@
 package ex02_Writer;
 
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class MyExample {
 
+	public static void ex01() {
+		
+		
+		
+	}
+	
 	public static void main(String[] args) {
 		
-		File dir = new File("C:" + File.separator + "test");
-		if(dir.exists() == false) {
-			dir.mkdirs();
-		}
+		File file = new File("C:" + File.separator + "storage", "test02.txt");
 		
-		File file = new File(dir, "test01_txt");
+		BufferedOutputStream bos = null;
 		
-		FileWriter fw = null;
 		try {
-			fw = new FileWriter(file);	// test01 파일과 연결
-			int i = 'I';
-			char[] cbuf = {' ' , 'a', 'm'};
-			String str = " a boy"; 
+			bos = new BufferedOutputStream(new FileOutputStream(file));
 			
-			fw.write(i);
-			fw.write(cbuf);
-			fw.write(str);
+			bos.write("거짓말을 하면 코가 길어진다".getBytes("UTF-8"));
 			
-			System.out.println("test01_txt 파일 생성");
-			
-		}catch(IOException e) {
-			e.printStackTrace();
+			System.out.println("dd");
+		}catch (IOException e) {
+			e.printStackTrace();// TODO: handle exception
 		}finally {
 			try {
-				if(fw != null) {
-					fw.close();
+				if(bos != null) {
+					bos.close();
 				}
-			}catch(IOException e) {
-				e.printStackTrace();
+			}catch (IOException e) {
+				e.printStackTrace();// TODO: handle exception
 			}
 		}
-		
-		
-		
-		
 		
 
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
