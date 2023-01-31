@@ -1,13 +1,21 @@
 package ex02_socket;
 
+import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
 public class ClientMainClass {
 
-	
+	/*
+		InputStream : 한글 처리 못 한다.
+		OutputStream : 한글 처리 못 한다.
+		-----------------------------------
+		1. InputStreamReader, OutputStreamWriter 로 변환해서 한글 처리하기.  - 권장
+		2. DataInputStream의 readUTF, DateOutputStream의 writeUTF로 한글 처리하기
+	*/
 	public static void main(String[] args) {
 		// Socket : 클라이언트가 사용하는 Socket
 		Socket socket = null;
@@ -29,6 +37,14 @@ public class ClientMainClass {
 			String welcomeMessage = in.readUTF();
 			System.out.println("[클라이언트] " + welcomeMessage);
 			
+			// 서버에게 메시지 보내기
+			BufferedWriter out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+								//     속도					문자					바이트
+			out.write("반갑습니다!");
+			
+			// 스트림 종료
+			out.close();
+			in.close();
 			
 		}catch (IOException e) {
 			e.printStackTrace();// TODO: handle exception
