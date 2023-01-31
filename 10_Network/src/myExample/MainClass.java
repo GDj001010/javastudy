@@ -17,7 +17,7 @@ public class MainClass {
 
 	public static void ex01() {   	// 공부하면서 직접 해보기
 	
-String apiURL = "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fwww.google.com%2Fchrome%2Fstatic%2Fimages%2Ffavicons%2Ffavicon-32x32.png&type=f30_30_png_expire24";
+		String apiURL = "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fwww.google.com%2Fchrome%2Fstatic%2Fimages%2Ffavicons%2Ffavicon-32x32.png&type=f30_30_png_expire24";
 		
 		URL url = null;
 		HttpURLConnection con = null;
@@ -121,7 +121,7 @@ String apiURL = "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fwww.google.
 	
 	public static void main(String[] args) {
 		
-		ex02();
+		ex01();
 		
 
 	}

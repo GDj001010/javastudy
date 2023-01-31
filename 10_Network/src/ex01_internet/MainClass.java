@@ -1,12 +1,13 @@
 package ex01_internet;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
@@ -113,46 +114,43 @@ public class MainClass {
 	public static void ex03() {
 		
 		String apiURL = "https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png";
+		
 		URL url = null;
 		HttpURLConnection con = null;
 		
-		InputStream in = null;					// Daum 로그를 읽어 들이는 입력 스트림
-		FileOutputStream out = null;			// C:\storage\daum.png로 내보내는 출력 스트림
+		BufferedInputStream in = null;
+		BufferedOutputStream out = null;
 		
+		File file = new File("C:" + File.separator + "storage", "daum.png");
 		
 		try {
-			
 			url = new URL(apiURL);
-			con = (HttpURLConnection) url.openConnection();
-			
-			
-			int responseCode = con.getResponseCode();			// 웹에 스트림 연결
-			if(responseCode == HttpURLConnection.HTTP_OK) {		// 정상 접속이 되었다면.
+			con = (HttpURLConnection)url.openConnection();
+
+			int responseCode = con.getResponseCode();
+			if(responseCode == HttpURLConnection.HTTP_OK) {
 				
-				in = con.getInputStream();		
-				out = new FileOutputStream("C:" + File.separator + "storage" + File.separator + "daum.png");
+				in = new BufferedInputStream(con.getInputStream());
+				out = new BufferedOutputStream(new FileOutputStream(file));
 				
 				byte[] b = new byte[10];
-				int readByte = 0;			// 10바이트가 아닐 수도 있기 때문에 선언
+				int count = 0;
 				
-				while((readByte = in.read(b)) != -1) {
-					
-					out.write(b, 0, readByte);
+				while((count = in.read(b)) != -1) {
+					out.write(b, 0, count);
 					
 				}
 				
 				System.out.println("다운로드 완료");
-				
-				out.close();				// output 종료
-				in.close();					// input 종료
-				con.disconnect(); 			// 접속 종료
+				in.close();
+				out.close();
+				con.disconnect();
 				
 			}
 			
 		}catch (MalformedURLException e) {
 			System.out.println("apiURL 주소 오류");
 		}catch (IOException e) {
-			// 접속 실패 또는 스트림 관련 오류
 			e.printStackTrace();
 		}
 		
@@ -165,43 +163,35 @@ public class MainClass {
 		URL url = null;
 		HttpURLConnection con = null;
 		
+		BufferedReader in = null;
+		BufferedWriter out = null;
 		
+		File file = new File("C:" + File.separator + "storage", "다운로드 문서.txt");
 		
 		try {
-			
 			url = new URL(apiURL);
 			con = (HttpURLConnection)url.openConnection();
 			
-			InputStreamReader reader = null;
-			FileWriter writer = null;
-			File file = new File("C:" + File.separator + "storage", "다운로드문서.txt");
-			
 			int responseCode = con.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {
-							//     char      ←      byte
-				reader = new InputStreamReader(con.getInputStream());
 				
+				in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+				out = new BufferedWriter(new FileWriter(file));
 				
-			}else {
-				reader = new InputStreamReader(con.getErrorStream());
+				StringBuilder sb = new StringBuilder();
+				String str = null;
+				
+				while((str = in.readLine()) != null) {
+					sb.append(str + "\n");
+				}
+				out.write(sb.toString());
+				
+				System.out.println("다운로드 완료");
+				
+				in.close();
+				out.close();
+				con.disconnect();
 			}
-			
-			StringBuilder sb = new StringBuilder();
-			char[] cbuf = new char[2];
-			int readCount = 0;
-			
-			while((readCount = reader.read(cbuf)) != -1) {
-				sb.append(cbuf, 0, readCount);
-			}
-			writer = new FileWriter(file);
-			writer.write(sb.toString());
-			
-			writer.close();
-			reader.close();
-			con.disconnect();
-			
-			System.out.println("다운로드 완료");
-			
 		}catch (MalformedURLException e) {
 			System.out.println("apiURL 주소 오류");
 		}catch (IOException e) {
@@ -246,20 +236,19 @@ public class MainClass {
 		
 		BufferedReader in = null;
 		BufferedWriter out = null;
-		
 		File file = null;
 		
 		try {
-			String message = "";
 			url = new URL(apiURL);
 			con = (HttpURLConnection)url.openConnection();
-			int resposeCode = con.getResponseCode();
-			if(resposeCode == HttpURLConnection.HTTP_OK) {
-				file = new File("C:" + File.separator + "storage", "sfc_web_mape.xml");
+			String message = "";
+			int responseCode = con.getResponseCode();
+			if(responseCode == HttpURLConnection.HTTP_OK) {
+				file = new File("C:" + File.separator + "storage", "sfc_web_map.xml");
 				in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-				message = "다운로드 완료";
+				message = "다운로드 성공";
 			}else {
-				file = new File("C:" + File.separator + "storage", "다운로드 실패");
+				file = new File("C:" + File.separator + "storage", "다운로드실패.txt");
 				in = new BufferedReader(new InputStreamReader(con.getErrorStream()));
 				message = "다운로드 실패";
 			}
@@ -278,18 +267,18 @@ public class MainClass {
 			out.close();
 			in.close();
 			con.disconnect();
-			
 		}catch (MalformedURLException e) {
 			System.out.println("apiURL 주소 오류");
 		}catch (IOException e) {
 			e.printStackTrace();
 		}
 		
+		
 	}
 	
 	public static void main(String[] args) {
 		
-		ex06();
+		ex04();
 		
 	}
 

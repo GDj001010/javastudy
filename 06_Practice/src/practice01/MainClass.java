@@ -1,10 +1,7 @@
 package practice01;
 
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -181,7 +178,7 @@ public class MainClass {
 		int result = sc.nextInt();
 		System.out.println(dan * n == result ? "정답" : "오답");
 		
-		
+		sc.close();
 		
 	}
 	
@@ -228,6 +225,7 @@ public class MainClass {
 	// 변환 전 파일명 >>> happy.jpg
 	// 변환 후 파일명 = happy_1658792128410.jpg
 	public static void ex09() {
+		
 		
 		
 		
