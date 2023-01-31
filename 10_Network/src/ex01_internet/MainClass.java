@@ -2,11 +2,16 @@ package ex01_internet;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 
 public class MainClass {
 
@@ -151,9 +156,87 @@ public class MainClass {
 		
 	}
 	
+	public static void ex04() {
+		
+		String apiURL = "https://gdlms.cafe24.com/uflist/curri/10004/bbs/68_63d8848f7d506.txt";
+		
+		URL url = null;
+		HttpURLConnection con = null;
+		
+		
+		
+		try {
+			
+			url = new URL(apiURL);
+			con = (HttpURLConnection)url.openConnection();
+			
+			InputStreamReader reader = null;
+			FileWriter writer = null;
+			File file = new File("C:" + File.separator + "storage", "다운로드문서.txt");
+			
+			int responseCode = con.getResponseCode();
+			if(responseCode == HttpURLConnection.HTTP_OK) {
+							//     char      ←      byte
+				reader = new InputStreamReader(con.getInputStream());
+				
+				
+			}else {
+				reader = new InputStreamReader(con.getErrorStream());
+			}
+			
+			StringBuilder sb = new StringBuilder();
+			char[] cbuf = new char[2];
+			int readCount = 0;
+			
+			while((readCount = reader.read(cbuf)) != -1) {
+				sb.append(cbuf, 0, readCount);
+			}
+			writer = new FileWriter(file);
+			writer.write(sb.toString());
+			
+			writer.close();
+			reader.close();
+			con.disconnect();
+			
+			System.out.println("다운로드 완료");
+			
+		}catch (MalformedURLException e) {
+			System.out.println("apiURL 주소 오류");
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+	public static void ex05() {
+		
+		/*
+			인코딩(암호화) : 원본 데이터를 UTF-8 방식으로 암호화
+			디코딩(복호화) : UTF-8 방식으로 암호화된 데이터를 복원
+		*/
+		
+		String data = "한글 english 12345 !@#$+-";
+		
+		try {
+			
+			// 인코딩		공부하기
+			String encodeData = URLEncoder.encode(data, "UTF-8");
+			System.out.println(encodeData);
+			
+			// 디코딩
+			String decodeData = URLDecoder.decode(encodeData, "UTF-8");
+			System.out.println(decodeData);
+			
+		}catch (UnsupportedEncodingException e) {
+			System.out.println("인코딩 실패");
+		}
+		
+	}
+
 	public static void main(String[] args) {
 		
-		ex03();
+		ex05();
 		
 	}
 
