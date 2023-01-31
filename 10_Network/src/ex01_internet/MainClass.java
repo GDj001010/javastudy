@@ -1,5 +1,7 @@
 package ex01_internet;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
@@ -234,9 +236,60 @@ public class MainClass {
 		
 	}
 
+	public static void ex06() {		// 연습
+		// 1시간마다 갱신되는 전국 날씨 정보
+		// storage\sfc_web_map.xml로 다운로드 받기
+		String apiURL = "http://www.kma.go.kr/XML/weather/sfc_web_map.xml";
+		
+		URL url = null;
+		HttpURLConnection con = null;
+		
+		BufferedReader in = null;
+		BufferedWriter out = null;
+		
+		File file = null;
+		
+		try {
+			String message = "";
+			url = new URL(apiURL);
+			con = (HttpURLConnection)url.openConnection();
+			int resposeCode = con.getResponseCode();
+			if(resposeCode == HttpURLConnection.HTTP_OK) {
+				file = new File("C:" + File.separator + "storage", "sfc_web_mape.xml");
+				in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+				message = "다운로드 완료";
+			}else {
+				file = new File("C:" + File.separator + "storage", "다운로드 실패");
+				in = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+				message = "다운로드 실패";
+			}
+			
+			StringBuilder sb = new StringBuilder();
+			String str = null;
+			
+			while((str = in.readLine()) != null) {
+				sb.append(str);
+			}
+			out = new BufferedWriter(new FileWriter(file));
+			out.write(sb.toString());
+			
+			System.out.println(message);
+			
+			out.close();
+			in.close();
+			con.disconnect();
+			
+		}catch (MalformedURLException e) {
+			System.out.println("apiURL 주소 오류");
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 	public static void main(String[] args) {
 		
-		ex05();
+		ex06();
 		
 	}
 
