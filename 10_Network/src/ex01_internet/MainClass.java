@@ -85,7 +85,7 @@ public class MainClass {
 			}
 			
 			// 요청 방식(요청 메소드)
-			String requestMethod = con.getRequestMethod();			// 삼성전자 검색할 시 주소창에 나오는 데이터가 get 방식이다
+			String requestMethod = con.getRequestMethod();			// 삼성전자 검색할 시 주소창에 나오는 데이터가 "get" 방식이다
 			System.out.println("요청 방식 : " + requestMethod);
 			
 			// 컨텐트 타입
@@ -278,7 +278,7 @@ public class MainClass {
 	
 	public static void main(String[] args) {
 		
-		ex04();
+		ex02();
 		
 	}
 
