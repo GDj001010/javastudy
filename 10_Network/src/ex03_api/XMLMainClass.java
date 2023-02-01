@@ -9,7 +9,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class MainClass {
+public class XMLMainClass {
 
 	public static void ex01() {
 		/*
@@ -69,9 +69,74 @@ public class MainClass {
 		}
 	}
 		
+	public static void ex02() {
+		/*
+	 	한국공항공사_항공기 운항정보 : 국제선 운항 스케줄
+	 	1. 서비스 URL : http://openapi.airport.co.kr/service/rest/FlightScheduleList/getDflightScheduleList
+	 	2. 요청변수(Request Parameter)
+	 		1) ServiceKey : 인증키
+	 		2) pageNO : 페이지 넘버 (1 = 10, 2 = 20)
+	 		3) schDate : 검색일자
+	 		4) schDeptCityCode : 출발도시코드
+	 		5) schArrvCityCode : 도착표시코드
+	*/	
+		
+		String apiURL = "http://openapi.airport.co.kr/service/rest/FlightScheduleList/getIflightScheduleList";
+		String serviceKey = "XokTvQs9E3+UuAoHWbXMOxumI7VYZPxNCqRt59JhMI1vM5g1txLcjJqlXO3voRklXpEJns3ShufiCv1PlNMtzQ==";
+		
+		URL url = null;
+		HttpURLConnection con = null;
+		
+		BufferedReader reader = null;
+		BufferedWriter writer = null;
+		
+		try {
+			
+			apiURL += "?serviceKey=" + URLEncoder.encode(serviceKey, "UTF-8");
+			apiURL += "&pageNo=1";
+			apiURL += "&schDate=20230201";
+			apiURL += "&schDeptCityCode=ICN";
+			apiURL += "&schArrvCityCode=JFK";
+			url = new URL(apiURL);
+			con = (HttpURLConnection)url.openConnection();
+			
+			con.setRequestMethod("GET");
+			con.setRequestProperty("Content-Type", "application/xml; charset=UTF-8");
+			
+			int responseCode = con.getResponseCode();
+			
+			if(responseCode == HttpURLConnection.HTTP_OK) {
+				reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+			}else {
+				reader = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+			}
+			
+			String line = null;
+			StringBuilder sb = new StringBuilder();
+			
+			while((line = reader.readLine()) != null) {
+				sb.append(line);
+			}
+			
+			reader.close();
+			con.disconnect();
+			
+			File file = new File("C:" + File.separator + "storage", "국내선 운항스케줄.xml");
+			writer = new BufferedWriter(new FileWriter(file));
+			writer.write(sb.toString());
+			writer.close();
+			
+			System.out.println("국내선 운항스케줄.xml이 생성되었습니다.");
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 	public static void main(String[] args) {
 		
-		ex01();
+		ex02();
 		
 
 	}
