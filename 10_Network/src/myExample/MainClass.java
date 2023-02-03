@@ -12,9 +12,13 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class MainClass {
-
+	
 	public static void ex01() {   	// 공부하면서 직접 해보기
 	
 		String apiURL = "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fwww.google.com%2Fchrome%2Fstatic%2Fimages%2Ffavicons%2Ffavicon-32x32.png&type=f30_30_png_expire24";
@@ -119,11 +123,87 @@ public class MainClass {
 		
 	}
 	
+	public static void ex03() {
+		
+	String apiURL = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustWeekFrcstDspth";
+	String serviceKey = "XokTvQs9E3+UuAoHWbXMOxumI7VYZPxNCqRt59JhMI1vM5g1txLcjJqlXO3voRklXpEJns3ShufiCv1PlNMtzQ==";
+	
+	URL url = null;
+	HttpURLConnection con = null;
+	BufferedReader in = null;
+	
+	try {
+		
+		StringBuilder sbUrl = new StringBuilder();
+		sbUrl.append(apiURL);
+		sbUrl.append("?serviceKey=" + URLEncoder.encode(serviceKey, "UTF-8"));
+		sbUrl.append("&returnType=json");
+		sbUrl.append("&searchDate=2023-01-30");
+		
+		url = new URL(sbUrl.toString());
+		con = (HttpURLConnection)url.openConnection();
+		
+		con.setRequestMethod("GET");
+		con.setRequestProperty("content-Type", "application/json charset = UTF-8");
+		int responsCode = con.getResponseCode();
+		if(responsCode == HttpURLConnection.HTTP_OK) {
+			in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+		}else {
+			in = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+		}
+		
+		String line = null;
+		StringBuilder sb = new StringBuilder();
+		
+		while((line = in.readLine()) != null) {
+			sb.append(line);
+		}
+		
+		in.close();
+		con.disconnect();
+		
+		
+		
+	}catch (Exception e) {
+		e.printStackTrace();
+	}
+	
+		
+	}
+	
+	
 	public static void main(String[] args) {
 		
-		ex01();
+		ex03();
 		
 
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
