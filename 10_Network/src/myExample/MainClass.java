@@ -125,52 +125,58 @@ public class MainClass {
 	
 	public static void ex03() {
 		
-	String apiURL = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustWeekFrcstDspth";
-	String serviceKey = "XokTvQs9E3+UuAoHWbXMOxumI7VYZPxNCqRt59JhMI1vM5g1txLcjJqlXO3voRklXpEJns3ShufiCv1PlNMtzQ==";
-	
-	URL url = null;
-	HttpURLConnection con = null;
-	BufferedReader in = null;
-	
-	try {
+		String serviceKey = "XokTvQs9E3+UuAoHWbXMOxumI7VYZPxNCqRt59JhMI1vM5g1txLcjJqlXO3voRklXpEJns3ShufiCv1PlNMtzQ==";
+		String apiURL = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustWeekFrcstDspth";
 		
-		StringBuilder sbUrl = new StringBuilder();
-		sbUrl.append(apiURL);
-		sbUrl.append("?serviceKey=" + URLEncoder.encode(serviceKey, "UTF-8"));
-		sbUrl.append("&returnType=json");
-		sbUrl.append("&searchDate=2023-01-30");
+		URL url = null;
+		HttpURLConnection con = null;
+		BufferedReader in = null;
 		
-		url = new URL(sbUrl.toString());
-		con = (HttpURLConnection)url.openConnection();
+		try {
+			StringBuilder sbURL = new StringBuilder();
+			sbURL.append(apiURL);
+			sbURL.append("?serviceKey=" + URLEncoder.encode(serviceKey, "UTF-8"));
+			sbURL.append("&returnType=json");
+			sbURL.append("&searchDate=2023-02-03");
+			
+			url = new URL(sbURL.toString());
+			con = (HttpURLConnection)url.openConnection();
+			
+			con.setRequestMethod("GET");
+			con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+			int responseCode = con.getResponseCode();
+			if(responseCode == HttpURLConnection.HTTP_OK) {
+				in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+			}else {
+				in = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+			}
 		
-		con.setRequestMethod("GET");
-		con.setRequestProperty("content-Type", "application/json charset = UTF-8");
-		int responsCode = con.getResponseCode();
-		if(responsCode == HttpURLConnection.HTTP_OK) {
-			in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-		}else {
-			in = new BufferedReader(new InputStreamReader(con.getErrorStream()));
-		}
-		
-		String line = null;
-		StringBuilder sb = new StringBuilder();
-		
-		while((line = in.readLine()) != null) {
-			sb.append(line);
-		}
-		
-		in.close();
-		con.disconnect();
-		
-		
-		
-	}catch (Exception e) {
-		e.printStackTrace();
+			String line = null;
+			StringBuilder sb = new StringBuilder();
+			while((line = in.readLine()) != null) {
+				sb.append(line);
+			}
+			
+			in.close();
+			con.disconnect();
+			System.out.println(sb.toString());
+			
+			JSONArray items = new JSONObject(sb.toString())
+								.getJSONObject("response")
+								.getJSONObject("body")
+								.getJSONArray("items");
+			
+			for(int i = 0; i < items.length(); i++) {
+				JSONObject item = items.getJSONObject(i);
+				System.out.println(item.getString("frcstOneDt") + " : " + item.getString("frcstOneCn"));
+				System.out.println(item.getString("frcstTwoDt") + " : " + item.getString("frcstTwoCn"));
+				System.out.println(item.getString("frcstThreeDt") + " : " + item.getString("frcstThreeCn"));
+				System.out.println(item.getString("frcstFourDt") + " : " + item.getString("frcstFourCn"));
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();		}
 	}
-	
-		
-	}
-	
 	
 	public static void main(String[] args) {
 		
