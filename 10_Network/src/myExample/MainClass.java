@@ -13,6 +13,11 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -178,9 +183,182 @@ public class MainClass {
 			e.printStackTrace();		}
 	}
 	
+	public static void ex05() {
+		
+		String serviceKey = "XokTvQs9E3+UuAoHWbXMOxumI7VYZPxNCqRt59JhMI1vM5g1txLcjJqlXO3voRklXpEJns3ShufiCv1PlNMtzQ==";
+		String apiURL = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustWeekFrcstDspth";
+		
+		URL url = null;
+		HttpURLConnection con = null;
+		BufferedReader in = null;
+		BufferedWriter out = null;
+		
+		try {
+			StringBuilder sbURL = new StringBuilder();
+			sbURL.append(apiURL);
+			sbURL.append("?serviceKey=" + URLEncoder.encode(serviceKey, "UTF-8"));
+			sbURL.append("&returnType=json");
+			sbURL.append("&searchDate=2023-02-03");
+			
+			url = new URL(sbURL.toString());
+			con = (HttpURLConnection)url.openConnection();
+			
+			con.setRequestMethod("GET");
+			con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+			int responseCode = con.getResponseCode();
+			if(responseCode == HttpURLConnection.HTTP_OK) {
+				in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+			}else {
+				in = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+			}
+		
+			String line = null;
+			StringBuilder sb = new StringBuilder();
+			while((line = in.readLine()) != null) {
+				sb.append(line);
+			}
+			JSONArray items = new JSONObject(sb.toString())
+					.getJSONObject("response")
+					.getJSONObject("body")
+					.getJSONArray("items");
+			
+			in.close();
+			con.disconnect();
+			System.out.println(sb.toString());
+			
+			
+			File file = new File("C:" + File.separator + "storage", "JSON.txt");
+			out = new BufferedWriter(new FileWriter(file));
+			
+			System.out.println("파일 생성");
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();		}
+		
+	}
+	
+	public static void ex06() {
+		
+		String serviceKey = "XokTvQs9E3+UuAoHWbXMOxumI7VYZPxNCqRt59JhMI1vM5g1txLcjJqlXO3voRklXpEJns3ShufiCv1PlNMtzQ==";
+		String apiURL = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustWeekFrcstDspth";
+		
+		URL url = null;
+		HttpURLConnection con = null;
+		BufferedReader in = null;
+		BufferedWriter out = null;
+		try {
+			StringBuilder sbURL = new StringBuilder();
+			sbURL.append(apiURL);
+			sbURL.append("?serviceKey=" + URLEncoder.encode(serviceKey, "UTF-8"));
+			sbURL.append("&returnType=json");
+			sbURL.append("&searchDate=2023-02-03");
+			
+			url = new URL(sbURL.toString());
+			con = (HttpURLConnection)url.openConnection();
+			
+			con.setRequestMethod("GET");
+			con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+			int responseCode = con.getResponseCode();
+			if(responseCode == HttpURLConnection.HTTP_OK) {
+				in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+			}else {
+				in = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+			}
+		
+			String line = null;
+			StringBuilder sb = new StringBuilder();
+			while((line = in.readLine()) != null) {
+				sb.append(line);
+			}
+			
+			in.close();
+			con.disconnect();
+			System.out.println(sb.toString());
+			
+			JSONArray items = new JSONObject(sb.toString())
+								.getJSONObject("response")
+								.getJSONObject("body")
+								.getJSONArray("items");
+			File file = new File("C:" + File.separator + "storage", "JSON.txt");
+			out = new BufferedWriter(new FileWriter(file));
+			
+			
+			for(int i = 0; i < items.length(); i++) {
+				JSONObject item = items.getJSONObject(i);
+				
+			}
+			
+			System.out.println("파일 생성");
+		}catch (Exception e) {
+			e.printStackTrace();		}
+		
+	}
+	
+	public static void ex07() {
+		
+		String serviceKey = "XokTvQs9E3+UuAoHWbXMOxumI7VYZPxNCqRt59JhMI1vM5g1txLcjJqlXO3voRklXpEJns3ShufiCv1PlNMtzQ==";
+		String apiURL = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustWeekFrcstDspth";
+		
+		URL url = null;
+		HttpURLConnection con = null;
+		BufferedReader in = null;
+		BufferedWriter out = null;
+		try {
+			StringBuilder sbURL = new StringBuilder();
+			sbURL.append(apiURL);
+			sbURL.append("?serviceKey=" + URLEncoder.encode(serviceKey, "UTF-8"));
+			sbURL.append("&returnType=json");
+			sbURL.append("&searchDate=2023-02-03");
+			
+			url = new URL(sbURL.toString());
+			con = (HttpURLConnection)url.openConnection();
+			
+			con.setRequestMethod("GET");
+			con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+			int responseCode = con.getResponseCode();
+			if(responseCode == HttpURLConnection.HTTP_OK) {
+				in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+			}else {
+				in = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+			}
+		
+			String line = null;
+			StringBuilder sb = new StringBuilder();
+			while((line = in.readLine()) != null) {
+				sb.append(line);
+			}
+			
+			JSONArray items = new JSONObject(sb.toString())
+					.getJSONObject("response")
+					.getJSONObject("body")
+					.getJSONArray("items");
+			List<JSONArray> list = new ArrayList<JSONArray>();
+				list.add(items);
+			
+			in.close();
+			con.disconnect();
+			System.out.println(sb.toString());
+			
+			File file = new File("C:" + File.separator + "storage", "JSON.txt");
+			out = new BufferedWriter(new FileWriter(file));
+			out.write(list.toString());
+			/*
+			System.out.println("파일 생성");
+			System.out.println(item.getString("frcstOneDt") + " : " + item.getString("frcstOneCn"));
+			System.out.println(item.getString("frcstTwoDt") + " : " + item.getString("frcstTwoCn"));
+			System.out.println(item.getString("frcstThreeDt") + " : " + item.getString("frcstThreeCn"));
+			System.out.println(item.getString("frcstFourDt") + " : " + item.getString("frcstFourCn"));
+			*/
+			out.close();
+		}catch (Exception e) {
+			e.printStackTrace();		}
+		
+	}
+	
 	public static void main(String[] args) {
 		
-		ex03();
+		ex07();
 		
 
 	}
