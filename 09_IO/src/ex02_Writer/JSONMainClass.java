@@ -172,7 +172,7 @@ public class JSONMainClass {
 		if(dir.exists() == false) {
 			dir.mkdirs();
 		}
-		File file = new File(dir, "product.json");
+		File file = new File(dir, "product.txt");
 		
 		try(BufferedWriter bw = new BufferedWriter(new FileWriter(file))){
 			bw.write(content);
