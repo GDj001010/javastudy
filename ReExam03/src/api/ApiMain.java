@@ -6,6 +6,8 @@ import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -66,22 +68,36 @@ public class ApiMain {
 									.getJSONObject("description")
 									.getJSONObject("body")
 									.getJSONArray("data");
-			
+			List<Wearher> wearherList = new ArrayList<Wearher>();
+			StringBuilder fileBuilder = new StringBuilder();
 			// 순회
 			for(int i = 0; i < dataList.length(); i++) {
 				JSONObject data = dataList.getJSONObject(i);
-			//	System.out.println(data.getInt("sky"));
-			//	System.out.println(data.getString("wdEn"));
+				System.out.println(data.getInt("sky"));
+				System.out.println(data.getString("wdEn"));
 				System.out.println(data.getInt("temp"));		// 온도
 				System.out.println(data.getString("wfKor"));	// 날씨
 				System.out.println(data.getInt("hour"));		// 시간
 				System.out.println("-----------");
+				int temp = data.getInt("temp");
+				String wfKor = data.getString("wfKor");
+				int hour = data.getInt("hour");
+				fileBuilder.append("온도").append(" ").append(temp).append("º").append("  날씨").append(" ").append(wfKor);
+				fileBuilder.append(" ").append(hour).append("시\n");
+				Wearher wearher = new Wearher();
+				wearher.setTemp(temp);
+				wearher.setWfKor(wfKor);
+				wearher.setHour(hour);
+				wearherList.add(wearher);
+				
 			}
 			
 			// 결과 파일 만들기
 			BufferedWriter writer = new BufferedWriter(new FileWriter("wearher.txt"));
 			writer.write(pubDate + "\n");
 			writer.write(category + "\n");
+			writer.write(fileBuilder.toString());
+			
 			writer.close();
 			
 			
