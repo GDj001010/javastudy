@@ -18,8 +18,7 @@ public class ApiMain {
 	public static void main(String[] args) {
 		
 		try {
-			String apiUrl = "http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=1154551000";
-			
+			String apiUrl = "http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=1154551000";			
 			URL url = new URL(apiUrl);
 			HttpURLConnection con = (HttpURLConnection)url.openConnection();
 			
@@ -40,60 +39,45 @@ public class ApiMain {
 			reader.close();
 			con.disconnect();
 			
-			// 응답 데이터 확인 (xml)
-			// System.out.println(sb.toString());
-			
-			
-			// 응답 데이터 (xml)를 JSON데이터로 변환하기(파싱)
-			JSONObject obj = XML.toJSONObject(sb.toString());
-			// System.out.println(obj);
-			
-			// pubDate 조회 (파싱)
+			JSONObject obj = XML.toJSONObject(sb.toString());						
 			String pubDate = obj.getJSONObject("rss")
 								.getJSONObject("channel")
 								.getString("pubDate");
-			System.out.println(pubDate);
-			
-			// category 조회 (파싱)
+						
 			String category = obj.getJSONObject("rss")
 								  .getJSONObject("channel")
 								  .getJSONObject("item")
-								  .getString("category");
-			System.out.println(category);
+								  .getString("category");			
 			
-			// data 속성에 저장된 날씨 배열 가져오기
 			JSONArray dataList = obj.getJSONObject("rss")
 									.getJSONObject("channel")
 									.getJSONObject("item")
 									.getJSONObject("description")
 									.getJSONObject("body")
 									.getJSONArray("data");
-			List<Wearher> wearherList = new ArrayList<Wearher>();
+			
+			List<Weather> weatherList = new ArrayList<Weather>();
 			StringBuilder fileBuilder = new StringBuilder();
-			// 순회
+			
 			for(int i = 0; i < dataList.length(); i++) {
 				JSONObject data = dataList.getJSONObject(i);
-				System.out.println(data.getInt("sky"));
-				System.out.println(data.getString("wdEn"));
-				System.out.println(data.getInt("temp"));		// 온도
-				System.out.println(data.getString("wfKor"));	// 날씨
-				System.out.println(data.getInt("hour"));		// 시간
-				System.out.println("-----------");
+				System.out.println(data.getInt("temp"));		
+				System.out.println(data.getString("wfKor"));	
+				System.out.println(data.getInt("hour"));					
 				int temp = data.getInt("temp");
 				String wfKor = data.getString("wfKor");
 				int hour = data.getInt("hour");
-				fileBuilder.append("온도").append(" ").append(temp).append("º").append("  날씨").append(" ").append(wfKor);
-				fileBuilder.append(" ").append(hour).append("시\n");
-				Wearher wearher = new Wearher();
-				wearher.setTemp(temp);
-				wearher.setWfKor(wfKor);
-				wearher.setHour(hour);
-				wearherList.add(wearher);
-				
+				fileBuilder.append(hour).append("시, ").append(temp).append("도, ").append(wfKor);
+				fileBuilder.append("\n");
+				Weather weather = new Weather();
+				weather.setTemp(temp);
+				weather.setWfKor(wfKor);
+				weather.setHour(hour);
+				weatherList.add(weather);				
 			}
 			
-			// 결과 파일 만들기
-			BufferedWriter writer = new BufferedWriter(new FileWriter("wearher.txt"));
+			
+			BufferedWriter writer = new BufferedWriter(new FileWriter("weather.txt"));
 			writer.write(pubDate + "\n");
 			writer.write(category + "\n");
 			writer.write(fileBuilder.toString());

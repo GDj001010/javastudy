@@ -1,6 +1,6 @@
 package api;
 
-public class Wearher {
+public class Weather {
 
 	private int temp;
 	private String wfKor;
@@ -26,7 +26,7 @@ public class Wearher {
 	}
 	@Override
 	public String toString() {
-		return "Wearher [temp=" + temp + ", wfKor=" + wfKor + ", hour=" + hour + "]";
+		return "Weather [temp=" + temp + ", wfKor=" + wfKor + ", hour=" + hour + "]";
 	}
 	
 	
