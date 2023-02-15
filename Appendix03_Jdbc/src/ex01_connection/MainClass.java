@@ -122,6 +122,22 @@ public class MainClass {
 		
 	}
 	
+	public static void ex100() {
+		
+		// Connection con = null;
+		try {
+			
+			Properties pro = new Properties();
+			pro.load(new BufferedReader(new FileReader("db.properties")));
+			Connection con = DriverManager.getConnection(pro.getProperty("url"), pro.getProperty("user"), pro.getProperty("password"));
+			
+		}catch (Exception e) {
+			e.printStackTrace();// TODO: handle exception
+		}
+		
+		
+	}
+	
 	public static void main(String[] args) {
 		
 		Connection con = getConnection();
