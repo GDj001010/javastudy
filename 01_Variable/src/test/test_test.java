@@ -97,6 +97,11 @@ public class test_test {
 		
 	}
 
+	public static void ex06() {
+		
+		
+		
+	}
 	public static void main(String[] args) {
 		
 		ex05();
