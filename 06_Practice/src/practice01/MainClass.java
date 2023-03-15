@@ -245,7 +245,7 @@ public class MainClass {
 	// 처음 뵙겠습니다
 	public static void ex10() {
 		
-		String[] frends = {"임지훈", "하준서", "김소연"};
+		String[] frends = {"유재석", "정우성", "안영미"};
 		Scanner sc = new Scanner(System.in);
 		System.out.println("친구 이름: >>>");
 		String frend = sc.next();
